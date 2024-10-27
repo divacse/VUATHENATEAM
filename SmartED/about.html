@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SkillRank</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/slick.css"/>
+
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <section class="preloader animated-section">
+        <div class="spinner">
+            <span class="sk-inner-circle"></span>
+        </div>
+    </section>
+
+    <main>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a class="navbar-brand" href="index.html">
+                    <strong><span>Skill</span> Rank</strong>
+                </a>
+
+                <div class="d-lg-none">
+                    <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="about.html">About us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html">Features</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-none d-lg-block">
+                        <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+            <header class="site-header section-padding-img site-header-image">
+                <div class="container">
+                  <div class="row row2">
+  <div class="col-lg-6 col-12 header-info">
+      <h1>
+          <span class="d-block text-primary">Visions Unveiled:</span>
+          <span class="d-block text-dark">A Journey through Time and Imagination</span>
+      </h1>
+  </div>
+  <div class="col-lg-6 col-12 header-info header-info2 ">
+    <img src="images/newlogo.png" alt="samrtpro:logo">
+<!--  <div style="margin: 0 auto; max-width: 800px;">
+          <iframe
+              width="600px"
+              height="380"
+              src="https://www.youtube.com/embed/LXn9jRqstK4?autoplay=1&mute=1"
+              title="SmartED"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              style="border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+          </iframe>
+        -->
+      </div>
+  </div>
+</div>
+<style>
+.row2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header-info2 {
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    text-align: center; /* Centers text in header-info */
+}
+
+.animated-section {
+    opacity: 0;
+    transform: translateX(-100px); /* Start off-screen */
+    transition: transform 2.2s ease, opacity 2.2s ease; /* Slower transition */
+}
+
+.animated-section.in-view {
+    opacity: 1;
+    transform: translateX(0); /* Slide to original position */
+}
+/* Scrollbar styling for modern browsers */
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+      width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background-color: orange;
+      border-radius: 10px;
+  }
+
+  /* SkillRank overlay near scrollbar */
+  .scrollbar-text {
+      position: fixed;
+      right: 5px; /* Aligns with scrollbar */
+      top: 50%;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+      color: #FF4400;
+      font-size: 16px;
+      font-weight: bold;
+      pointer-events: none; /* Keeps it non-interactive */
+  }
+  .text-muted{
+    color:white !important;
+  }
+</style>
+
+
+
+<div class="scrollbar-text"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    });
+
+    document.querySelectorAll('.animated-section').forEach(section => {
+        observer.observe(section);
+    });
+});
+
+</script>
+
+
+
+                </div>
+
+
+            </header>
+
+
+            <section class="team section-padding animated-section" style="background-color: #f9f9f9; padding: 60px 0;">
+                <div class="container">
+
+                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="row">
+  <div class="col-12">
+      <h2 class="mb-5 text-center" style="color: #000;">
+          What we <span style="color: #007bff;">provide</span>
+      </h2>
+  </div>
+
+  <!-- First Row -->
+  <div class="col-lg-4 mb-4 col-12">
+      <div class="team-thumb d-flex align-items-center" style="border: 1px solid #ddd;
+      border-radius: 10px; padding: 20px; background-color: #fff; height: 200px;
+      transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);background-color:black !important;">
+          <i class="fas fa-certificate fa-3x text-primary" style="margin-right: 15px;"></i>
+          <div class="team-info">
+              <h5 class="mb-0" style="font-size: 1.25rem;color:white !important;">Be a certified professional</h5>
+              <strong class="text-muted">Enhance your career with our certification programs designed for practical skills and knowledge.</strong>
+          </div>
+      </div>
+  </div>
+
+  <div class="col-lg-4 mb-4 col-12">
+      <div class="team-thumb d-flex align-items-center" style="border: 1px solid #ddd;background-color:black !important; border-radius: 10px; padding: 20px; background-color: #f0f8ff; height: 200px; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <i class="fas fa-globe fa-3x text-primary" style="margin-right: 15px;"></i>
+          <div class="team-info">
+              <h5 class="mb-0" style="font-size: 1.25rem;color:white !important;">Global Opportunities</h5>
+              <strong class="text-muted">Expand your horizons and explore career opportunities worldwide through our programs.</strong>
+          </div>
+      </div>
+  </div>
+
+  <div class="col-lg-4 mb-4 col-12">
+      <div class="team-thumb d-flex align-items-center" style="border: 1px solid #ddd;background-color:#007bff !important; border-radius: 10px; padding: 20px; background-color: #e6ffe6; height: 200px; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <i class="fas fa-chalkboard-teacher fa-3x text-primary" style="margin-right: 15px;"></i>
+          <div class="team-info">
+              <h5 class="mb-0" style="font-size: 1.25rem;color:white !important;">Interactive Learning</h5>
+              <strong class="text-muted">Join our live online classes for an engaging learning experience with real-time interaction.</strong>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Second Row -->
+  <div class="col-lg-4 mb-4 col-12">
+      <div class="team-thumb d-flex align-items-center" style="border: 1px solid #ddd;background-color:black !important; border-radius: 10px; padding: 20px; background-color: #ffebcd; height: 200px; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <i class="fas fa-university fa-3x text-primary" style="margin-right: 15px;"></i>
+          <div class="team-info">
+              <h5 class="mb-0" style="font-size: 1.25rem;color:white !important;">Accessibility Programs</h5>
+              <strong class="text-muted">Our programs ensure that everyone has equal access to quality education.</strong>
+          </div>
+      </div>
+  </div>
+
+  <div class="col-lg-4 mb-4 col-12">
+      <div class="team-thumb d-flex align-items-center" style="border: 1px solid #ddd;background-color:black !important; border-radius: 10px; padding: 20px; background-color: #ffe4e1; height: 200px; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <i class="fas fa-user-tie fa-3x text-primary" style="margin-right: 15px;"></i>
+          <div class="team-info">
+              <h5 class="mb-0" style="font-size: 1.25rem;color:white !important;">Expert Trainers</h5>
+              <strong class="text-muted">Learn from industry professionals who bring real-world experience to the classroom.</strong>
+          </div>
+      </div>
+  </div>
+
+  <div class="col-lg-4 mb-4 col-12">
+      <div class="team-thumb d-flex align-items-center" style="border: 1px solid #ddd;background-color:#007bff !important; border-radius: 10px; padding: 20px; background-color: #f5f5dc; height: 200px; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <i class="fas fa-briefcase fa-3x text-primary" style="margin-right: 15px;"></i>
+          <div class="team-info">
+              <h5 class="mb-0" style="font-size: 1.25rem;color:white !important;">Career Placement</h5>
+              <strong class="text-muted">We provide career placement assistance to help you land your dream job after training.</strong>
+          </div>
+      </div>
+  </div>
+</div>
+
+                </div>
+            </section>
+            <section class="education-section animated-section" style="background-color: #f0f4f8; padding: 60px 20px;">
+      <div class="container" style="max-width: 1200px; margin: auto; text-align: center;">
+          <h2 style="font-size: 2.5rem; color: #007bff; margin-bottom: 20px;">Education – your door to the future</h2>
+          <p style="font-size: 1.25rem; color: #333; margin-bottom: 40px;">
+              The best educational programs and opportunities for fast and effective learning. New professions, new opportunities, and ways of working. You can learn more in the next section.
+          </p>
+
+          <div style="margin: 0 auto; max-width: 800px;">
+              <iframe
+                  width="100%"
+                  height="480"
+                  src="https://www.youtube.com/embed/LXn9jRqstK4?autoplay=1&mute=1"
+                  title="SmartED"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  style="border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+              </iframe>
+          </div>
+      </div>
+  </section>
+  <section class="faqSec-section animated-section">
+    <div class="faqSec-container">
+        <h2>Answering Your Common Questions</h2>
+        <p>Here are answers to some frequently asked questions about our programs, including training format, requirements, and session flexibility.</p>
+
+        <div class="faqSec-cards">
+            <div class="faqSec-card">
+                <h4>How will training be imparted?</h4>
+                <p>Training is conducted through recorded and live online sessions, with module-specific schedules to ensure effective learning.</p>
+            </div>
+            <div class="faqSec-card">
+                <h4>What are the software & hardware requirements?</h4>
+                <p>A stable internet connection, headphones, and a microphone provide the best experience for live sessions.</p>
+            </div>
+            <div class="faqSec-card">
+                <h4>What if I miss a live session?</h4>
+                <p>If you miss a session, the recording will be emailed to you, and you can ask questions in the next live session.</p>
+            </div>
+            <div class="faqSec-card">
+                <h4>Can I access training materials anytime?</h4>
+                <p>Yes, all recorded sessions and materials are accessible anytime, so you can learn at your own pace.</p>
+            </div>
+        </div>
+
+        <!-- GIF Section -->
+        <div class="faqSec-gif-container">
+            <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" alt="FAQ Animation">
+        </div>
+    </div>
+    <style>
+    .faqSec-section {
+    background-color: #eef2f6;
+    padding: 70px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.faqSec-container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.faqSec-container h2 {
+    font-size: 2.8rem;
+    color: #0056b3;
+    margin-bottom: 30px;
+}
+
+.faqSec-container p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 50px;
+    line-height: 1.6;
+}
+
+.faqSec-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.faqSec-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    text-align: left;
+}
+
+.faqSec-card h4 {
+    color: #0056b3;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.faqSec-card p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.faqSec-gif-container {
+    margin-top: 50px;
+}
+
+.faqSec-gif-container img {
+    width: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .faqSec-card {
+        width: 100%;
+    }
+
+    .faqSec-container h2 {
+        font-size: 2rem;
+    }
+
+    .faqSec-container p {
+        font-size: 1rem;
+    }
+}
+
+    </style>
+</section>
+
+
+
+
+  <footer class="site-footer">
+      <div class="container">
+          <div class="row">
+
+              <div class="col-lg-3 col-10 me-auto mb-4">
+                  <h4 class="text-white mb-3"><a href="index.html">Skill</a> Rank</h4>
+                  <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2024 <strong>Skill Rank</strong></p>
+                  <br>
+                  <p class="copyright-text">Designed by <a href="#" target="_blank">VU Athena Team</a></p>
+              </div>
+
+              <div class="col-lg-5 col-8">
+                  <h5 class="text-white mb-3">Sitemap</h5>
+
+                  <ul class="footer-menu d-flex flex-wrap">
+                    <li class="footer-menu-item"><a href="home.html" class="footer-menu-link">Home</a></li>
+
+                      <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">About</a></li>
+
+                      <li class="footer-menu-item"><a href="#" class="footer-menu-link">Features</a></li>
+                      <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                  </ul>
+              </div>
+
+              <div class="col-lg-3 col-4">
+                  <h5 class="text-white mb-3">Social</h5>
+
+                  <ul class="social-icon">
+
+                      <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+
+                      <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+
+                      <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                      <li><a href="#" class="social-icon-link bi-skype"></a></li>
+                  </ul>
+              </div>
+
+          </div>
+      </div>
+  </footer>
+
+
+        <!-- TEAM MEMBER MODAL -->
+        <div class="modal fade" id="don" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content border-0">
+                    <div class="modal-header flex-column">
+                        <h3 class="modal-title" id="exampleModalLabel">Don Haruko</h3>
+
+                        <h6 class="text-muted">Product, VP</h6>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <h5 class="mb-4">Over three years in business had the chance to work on variety of projects, with companies</h5>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-6 col-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <p>Incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse commodo viverra.</p>
+                            </div>
+                        </div>
+
+                        <ul class="social-icon">
+                            <li class="me-3"><strong>Where to find?</strong></li>
+
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TEAM MEMBER MODAL -->
+        <div class="modal fade" id="kelly" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content border-0">
+                    <div class="modal-header flex-column">
+                        <h3 class="modal-title" id="exampleModalLabel">Kelly Lisa</h3>
+
+                        <h6 class="text-muted">Global, Head of Marketing</h6>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <h5 class="mb-4">Over three years in business had the chance to work on variety of projects, with companies</h5>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-6 col-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <p>Incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse commodo viverra.</p>
+                            </div>
+                        </div>
+
+                        <ul class="social-icon">
+                            <li class="me-3"><strong>Where to find?</strong></li>
+
+                            <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TEAM MEMBER MODAL -->
+        <div class="modal fade" id="marie" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content border-0">
+                    <div class="modal-header flex-column">
+                        <h3 class="modal-title" id="exampleModalLabel">Marie Sam</h3>
+
+                        <h6 class="text-muted">Founder & CEO</h6>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <h5 class="mb-4">Over three years in business had the chance to work on variety of projects, with companies</h5>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-6 col-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <p>Incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse commodo viverra.</p>
+                            </div>
+                        </div>
+
+                        <ul class="social-icon">
+                            <li class="me-3"><strong>Where to find?</strong></li>
+
+                            <li><a href="#" class="social-icon-link bi-twitter"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-linkedin"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-envelope"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/Headroom.js"></script>
+        <script src="js/jQuery.headroom.js"></script>
+        <script src="js/slick.min.js"></script>
+        <script src="js/custom.js"></script>
+
+    </body>
+</html>

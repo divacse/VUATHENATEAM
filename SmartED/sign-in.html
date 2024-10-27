@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with LinkedIn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0077B5; /* LinkedIn Blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #005582;
+        }
+        .social-login {
+            display: flex;
+            justify-content: center;
+            margin: 1em 0;
+        }
+        .social-login button {
+            background-color: #f4f4f4;
+            color: #0077B5;
+            border: 1px solid #0077B5;
+        }
+        .social-login button:hover {
+            background-color: #e4e4e4;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2><span style="color:#ff4400;">Skill</span> Rank Login</h2>
+        <form id="loginForm" onsubmit="handleLogin(event);">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <div class="social-login">
+            <button type="button" onclick="handleLinkedInLogin()">Sign in with LinkedIn</button>
+        </div>
+    </div>
+
+    <script>
+        const linkedInClientID = '86u3axly2ese4t';
+        const linkedInRedirectURI = 'https://vuathenaedtech.netlify.app/ed/index.html';
+        const linkedInClientSecret = 'WPL_AP1.FhqNCnKXc3CzMQYB.WOVx7Q=='; // Keep secret secure
+
+        function handleLogin(event) {
+            event.preventDefault();
+            window.location.href = "index.html"; 
+        }
+
+        function handleLinkedInLogin() {
+            const linkedInAuthURL = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${linkedInClientID}&redirect_uri=${encodeURIComponent(linkedInRedirectURI)}&scope=r_liteprofile%20r_emailaddress`;
+            window.location.href = linkedInAuthURL; // Redirect to LinkedIn
+        }
+
+        // This function handles the redirect and processes the code or error
+        document.addEventListener('DOMContentLoaded', handleLinkedInRedirect);
+
+        function handleLinkedInRedirect() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const error = urlParams.get('error');
+
+            if (error) {
+                console.error('Error during LinkedIn authentication:', error);
+                alert('An error occurred during authentication. Please try again.');
+                return;
+            }
+
+            if (code) {
+                // Exchange the code for an access token
+                exchangeCodeForAccessToken(code)
+                    .then(accessToken => {
+                        return getUserProfile(accessToken);
+                    })
+                    .then(userProfile => {
+                        console.log(userProfile); // Process the user profile as needed
+                        alert('Logged in successfully!');
+                        // Redirect to another page or update UI as needed
+                        // window.location.href = "your-dashboard-url.html"; // Uncomment to redirect after login
+                    })
+                    .catch(e => {
+                        console.error('Failed to retrieve access token or user profile:', e);
+                        alert('An error occurred while retrieving your profile. Please try again.');
+                    });
+            }
+        }
+
+        // Function to exchange the authorization code for an access token
+        async function exchangeCodeForAccessToken(code) {
+            const response = await fetch('https://www.linkedin.com/oauth/v2/accessToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    grant_type: 'authorization_code',
+                    code: code,
+                    redirect_uri: linkedInRedirectURI,
+                    client_id: linkedInClientID,
+                    client_secret: linkedInClientSecret, // Use a secure way to manage secrets in production
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to exchange code for access token');
+            }
+
+            const data = await response.json();
+            return data.access_token; // Return the access token
+        }
+
+        // Function to fetch the user's LinkedIn profile
+        async function getUserProfile(accessToken) {
+            const response = await fetch('https://api.linkedin.com/v2/me', {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch user profile');
+            }
+
+            return await response.json();
+        }
+    </script>
+</body>
+</html>
