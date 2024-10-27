@@ -77,16 +77,17 @@
 
     <script>
         const linkedInClientID = '86u3axly2ese4t';
-        const linkedInRedirectURI = 'https://vuathenaedtech.netlify.app/ed/index.html';
-        const linkedInClientSecret = 'WPL_AP1.FhqNCnKXc3CzMQYB.WOVx7Q=='; // Keep secret secure
+        const linkedInRedirectURI = 'https://vuathena.netlify.app/smarted/'; // Match this with LinkedIn app settings
 
         function handleLogin(event) {
             event.preventDefault();
-            window.location.href = "index.html"; 
+            // Redirect to the main page on successful login
+            window.location.href = "index.html";
         }
 
         function handleLinkedInLogin() {
             const linkedInAuthURL = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${linkedInClientID}&redirect_uri=${encodeURIComponent(linkedInRedirectURI)}&scope=r_liteprofile%20r_emailaddress`;
+            console.log('Redirecting to LinkedIn auth URL:', linkedInAuthURL); // Log the URL for debugging
             window.location.href = linkedInAuthURL; // Redirect to LinkedIn
         }
 
@@ -105,16 +106,15 @@
             }
 
             if (code) {
-                // Exchange the code for an access token
+                console.log('Authorization code received:', code);
                 exchangeCodeForAccessToken(code)
                     .then(accessToken => {
                         return getUserProfile(accessToken);
                     })
                     .then(userProfile => {
-                        console.log(userProfile); // Process the user profile as needed
+                        console.log(userProfile);
                         alert('Logged in successfully!');
                         // Redirect to another page or update UI as needed
-                        // window.location.href = "your-dashboard-url.html"; // Uncomment to redirect after login
                     })
                     .catch(e => {
                         console.error('Failed to retrieve access token or user profile:', e);
@@ -135,7 +135,7 @@
                     code: code,
                     redirect_uri: linkedInRedirectURI,
                     client_id: linkedInClientID,
-                    client_secret: linkedInClientSecret, // Use a secure way to manage secrets in production
+                    client_secret: 'YOUR_LINKEDIN_CLIENT_SECRET' // Keep this secret safe
                 }),
             });
 
@@ -144,7 +144,7 @@
             }
 
             const data = await response.json();
-            return data.access_token; // Return the access token
+            return data.access_token;
         }
 
         // Function to fetch the user's LinkedIn profile
